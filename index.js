@@ -1,44 +1,28 @@
-let camera_button = document.querySelector("#start-camera");
+let startCameraButton = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
-let click_button = document.querySelector("#click-photo");
+let takePhotoButton = document.querySelector("#take-photo");
 let canvas = document.querySelector("#canvas");
-let save_button = document.querySelector("#save_image");
-let save_link = document.querySelector("#download");
-let stopButton = document.querySelector("#stop")
+let saveImageButton = document.querySelector("#save-image");
+// let stopButton = document.querySelector("#stop")
 
-camera_button.addEventListener('click', function (evt) {
+startCameraButton.addEventListener('click', function (evt) {
 	video.style.display = 'block';
-	click_button.style.display = 'block';
-  })
-
-click_button.addEventListener('click', function (evt) {
-	save_button.style.display = 'block';
+	takePhotoButton.style.display = 'block';
 })
 
-camera_button.addEventListener('click', async function() {
-   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+startCameraButton.addEventListener('click', async function () {
+	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 	video.srcObject = stream;
 });
 
-click_button.addEventListener('click', function() {
-   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-   	let image_data_url = canvas.toDataURL('image/jpeg');
-	save_link.style.display = 'block';
-
-   	// data url of the image
-   	console.log(image_data_url);
+takePhotoButton.addEventListener('click', function () {
+	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+	saveImageButton.style.display = 'block';
 });
 
-/* stopButton.addEventListener('click', function() {
-
-	stream.getTracks().forEach(function(track) {
-		track.stop();
-	  });
-}); */
-
-
-download_img = function(el) {
-	// get image URI from canvas object
-	var imageURI = canvas.toDataURL("image/jpg");
-	el.href = imageURI;
-  };
+downloadImg = function () {
+	var link = document.createElement('a');
+	link.download = 'filename.png';
+	link.href = document.getElementById('canvas').toDataURL("image/jpg");
+	link.click();
+};

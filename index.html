@@ -9,11 +9,9 @@
     <body>
         <button id="start-camera">Start Camera</button>
         <video id="video" width="320" height="240" autoplay></video>
-        <button id="click-photo">Click Photo</button>
+        <button id="take-photo">Take Photo</button>
         <canvas id="canvas" width="320" height="240"></canvas>
-        <!--<button id="save_image">Save Image</button> -->
-        <a id="download" download="myImage.jpg" href="" onclick="download_img(this);">Download to myImage.jpg</a>
-        <!--<button id="stop">Stop</button>-->
+        <button id="save-image" onclick="downloadImg();">Download</button>
 
         <script src="index.js"></script>
     </body>

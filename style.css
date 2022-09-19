@@ -19,7 +19,7 @@ button {
     margin: 50px auto 0 auto;
 }
 
-#click-photo {
+#take-photo {
     display: none;
 }
 
@@ -50,7 +50,7 @@ button {
     box-sizing: border-box;
 }
 
-#save_image {
+#save-image {
     display: none;
 }
 
