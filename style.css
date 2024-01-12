@@ -19,7 +19,7 @@ button {
     margin: 50px auto 0 auto;
 }
 
-#take-photo {
+#take-photo, #stop-camera {
     display: none;
 }
 
